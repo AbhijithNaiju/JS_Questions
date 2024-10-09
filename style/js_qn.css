@@ -1,0 +1,27 @@
+.left
+{
+	width:30%;
+	margin:10px auto;
+	border:2px solid #222;
+	padding:20px;
+}
+.right
+{
+	width:68%;
+	margin:10px auto;	
+	border:2px solid #222;
+	padding:20px;
+}
+body>div
+{
+	display:flex;
+}
+button
+{
+	border:2px solid #900C3F;
+	background:#fff;
+	color:#2e4053;
+	font-weight:bold;
+	padding:5px 20px;
+	border-radius:4px;
+}
