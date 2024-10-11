@@ -153,14 +153,178 @@ function digitsSum()
 }
 function reverseNumber()
 {
-	let numberOne=parseInt(document.getElementById("numberOne").value);
+	let numberOne=document.getElementById("numberOne").value;
 	let rev=0;
 	let rem=0;
-	while(parseInt(numberOne)!=0)
+	if(checkIsEmpty(numberOne))
 	{
-		rem=parseInt(numberOne)%10;
-		rev=rev*10+rem;
-		numberOne=parseInt(numberOne)/10;	
+		while(parseInt(numberOne)!=0)
+		{
+			rem=parseInt(numberOne)%10;
+			rev=rev*10+rem;
+			numberOne=parseInt(numberOne)/10;	
+		}
+		printOutput("answerReverse",rev);
+		printOutput("error","");
 	}
-	printOutput("answerReverse",rev);	
+	else
+	{
+		printOutput("error","Please enter the number");
+	}	
+}
+function smallAndLarge()
+{
+	let num1=document.getElementById("numberOne").value;
+	let num2=document.getElementById("numberTwo").value;
+	let num3=document.getElementById("numberThree").value;
+	if(checkIsEmpty(num1) && checkIsEmpty(num2) && checkIsEmpty(num3))
+	{
+		num1=Number(num1);
+		num2=Number(num2);
+		num3=Number(num3);
+		if(num1>num2 && num1>num3)
+		{
+			large=num1;
+			if(num2<num3)
+			{
+				small=num2;
+			}
+			else
+			{
+				small=num3;
+			}
+		}
+		else if(num2>num3)
+		{
+			large=num2;
+			if(num1<num3)
+			{
+				small=num1;
+			}
+			else
+			{
+				small=num3;
+			}
+		}
+		else
+		{
+			large=num3;
+			if(num1<num2)
+			{
+				small=num1;
+			}
+			else
+			{
+				small=num2;
+			}
+		}
+		printOutput("answerLargeOf3",large);
+		printOutput("answerSmallOf3",small);
+		printOutput("error","");
+	}
+	else
+	{
+		printOutput("error","Please enter 3 numbers");
+	}	
+}
+function primeOrNot()
+{
+	let num1=document.getElementById("numberOne").value;
+	if(checkIsEmpty(num1))
+	{
+		num1=parseInt(num1);
+		flag=0;
+		if(num1==1)
+		{
+			printOutput("answerPrimeOrNot","The number is neither prime nor composite");
+		}
+		else
+		{
+			for(i=2;i<=(num1/2);i++)
+			{
+				if(num1%i==0)
+				{
+					flag=1;
+				}
+			}
+			if(flag==1)
+			{
+				printOutput("answerPrimeOrNot","Not Prime");
+			}
+			else
+			{
+				printOutput("answerPrimeOrNot","Prime");
+			}
+			printOutput("error","");
+		}
+	}
+	else
+	{
+		printOutput("error","Please enter the number");
+	}	
+}
+function dayName()
+{
+	let num1=document.getElementById("numberOne").value;
+	if(checkIsEmpty(num1))
+	{
+		printOutput("error","");
+		num1=parseInt(num1);
+		switch(num1)
+		{
+			case 1:
+				printOutput("answerDayName","Sunday");
+				break;
+			case 2:
+				printOutput("answerDayName","Monday");
+				break;
+			case 3:
+				printOutput("answerDayName","Tuesday");
+				break;
+			case 4:
+				printOutput("answerDayName","Wednesday");
+				break;
+			case 5:
+				printOutput("answerDayName","Thursday");
+				break;
+			case 6:
+				printOutput("answerDayName","Friday");
+				break;
+			case 7:
+				printOutput("answerDayName","Saturday");
+				break;
+			default:
+				printOutput("error","Please enter a valid number");
+				printOutput("answerDayName","");
+		}
+	}
+	else
+	{
+		printOutput("error","Please enter the number");
+	}	
+}
+function findEligibility()
+{
+	let physics=document.getElementById("physics").value;
+	let chemistry=document.getElementById("chemistry").value;
+	let maths=document.getElementById("maths").value;
+	if(checkIsEmpty(physics) && checkIsEmpty(chemistry) && checkIsEmpty(maths))
+	{
+		printOutput("error","");
+		physics=Number(physics);
+		chemistry=Number(chemistry);
+		maths=Number(maths);
+		if(maths>=65 && physics>=55 && chemistry>=50 && ((physics+chemistry+maths)>=190 || (maths+physics)>=140))
+		{
+			printOutput("answerEligibility","Eligible");
+		}
+		else
+		{
+			printOutput("answerEligibility","Not Eligible");
+		}
+	}
+	else
+	{
+		printOutput("error","Please enter all the marks");	
+	}
 }

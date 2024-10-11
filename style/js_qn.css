@@ -28,3 +28,20 @@ button
 {
 	color:red;
 }
+#calculatorOperator
+{
+	width:30px;
+	border:none;
+	text-align:center;
+	font-weight:bold;
+	font-size:18px;
+	
+}
+#calculatorOperator:focus
+{
+	outline:none;
+}
+.calculator_output
+{
+	margin:10px 0;
+}
