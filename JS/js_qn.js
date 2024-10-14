@@ -80,7 +80,7 @@ function calculateFloatNumbers()
 	printOutput("answerFloatProduct",(numberOne*numberTwo).toFixed(2));
 	if(numberTwo!=0)
 	{
-		printOutput("answerFloatQuotient",(numberOne/numberTwo).toFixed(2));
+		printOutput("answerFloatQuotient",(numberOne/numberTwo));
 	}
 	else
 	{
