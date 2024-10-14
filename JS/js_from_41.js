@@ -28,15 +28,15 @@ function calculateElectricity()
             }
             else if(consumption<=100)
             {
-                billAmount=consumption*3.25;
+                billAmount=(50*2.60)+(consumption-50)*3.25;
             }
             else if(consumption<=200)
             {
-                billAmount=consumption*5.65;
+                billAmount=(50*2.60)+(50*3.25)+(consumption-100)*5.65;
             }
             else if(consumption>200)
             {
-                billAmount=consumption*7.25;
+                billAmount=(50*2.60)+(50*3.25)+(100*5.65)+(consumption-200)*7.25;
             }
             if(consumption>700)
             {
@@ -279,11 +279,11 @@ function stringConcat()
 // Qn 53
 function printAscii()
 {
-    let string1=document.getElementById("string1").value;
+	let string1=document.getElementById("string1").value;
 	if(checkIsEmpty(string1) && string1.length==1)
 	{
-        let asciiValue=string1.charCodeAt(0);
-        printOutput("answerPrintAscii",asciiValue);
+		let asciiValue=string1.charCodeAt(0);
+		printOutput("answerPrintAscii",asciiValue);
 		printOutput("error","");
 	}
 	else
@@ -353,20 +353,6 @@ function stringMiddleChar()
         }	
 }
 // Qn 59
-function stringLastChar()
-{
-    let string1=document.getElementById("string1").value;
-    if(checkIsEmpty(string1))
-        {
-            string1Length=string1.length;
-            printOutput("answerStringLastChar",string1[string1Length-1]);
-            printOutput("error","");
-        }
-        else
-        {
-            printOutput("error","Please enter the string");
-        }	
-}
 function printStringChar()
 {
     let array1=[];
@@ -387,6 +373,7 @@ function printStringChar()
             printOutput("error","Please enter the string");
         }	
 }
+// Qn 60
 function printStringLength()
 {
     let string1=document.getElementById("string1").value;
@@ -406,6 +393,7 @@ function printStringLength()
             printOutput("error","Please enter the string");
         }	
 }
+// Qn 61
 function printStringCharIndex()
 {
     let string1=document.getElementById("string1").value;
@@ -429,71 +417,221 @@ function printStringCharIndex()
             printOutput("error","Please enter the string and charector to search");
         }	
 }
+// Qn 62
 function printStringCharOccurance()
 {
-    let string1=document.getElementById("string1").value;
-    let charector=document.getElementById("charector").value;
-    if(checkIsEmpty(string1) && checkIsEmpty(charector))
-        {
-            stringLength=string1.length;
-           for(i=0;i<stringLength;i++)
-            {
-                if(string1[i]==charector)
-                {
-                    printOutput("answerStringCharOccurance","The charector is present in the string");
-                    printOutput("error","");
-                    return;
-                }
-            }
-            printOutput("answerStringCharOccurance","Charector not found in the string");
-        }
-        else
-        {
-            printOutput("error","Please enter the string and charector to search");
-        }	
+	let string1=document.getElementById("string1").value;
+	let charector=document.getElementById("charector").value;
+	if(checkIsEmpty(string1) && checkIsEmpty(charector))
+	{
+		stringLength=string1.length;
+		for(i=0;i<stringLength;i++)
+		{
+			if(string1[i]==charector)
+			{
+				printOutput("answerStringCharOccurance","The charector is present in the string");
+				printOutput("error","");
+				return;
+			}
+		}
+		printOutput("answerStringCharOccurance","Charector not found in the string");
+	}
+	else
+	{
+		printOutput("error","Please enter the string and charector to search");
+	}	
 }
+// Qn 64
 function replaceString()
-{
-    let string1=document.getElementById("string1").value;
-    let replacewith=document.getElementById("replacewith").value;
-    let stringToReplace=document.getElementById("stringToReplace").value;
-    if(checkIsEmpty(string1) && checkIsEmpty(replacewith) && checkIsEmpty(stringToReplace))
+{	
+	let string1=document.getElementById("string1").value;
+	let replacewith=document.getElementById("replacewith").value;
+	let stringToReplace=document.getElementById("stringToReplace").value;
+	if(checkIsEmpty(string1) && checkIsEmpty(replacewith) && checkIsEmpty(stringToReplace))
         {
-            string2=string1.replace(stringToReplace,replacewith);
-            printOutput("answerReplaceString",string2);
-            printOutput("error","");
-        }
+		string2=string1.replace(stringToReplace,replacewith);
+		printOutput("answerReplaceString",string2);
+		printOutput("error","");
+	}
         else
         {
-            printOutput("error","Please enter the string and charector to search");
+		printOutput("error","Please enter the string and charector to search");
         }	
 }
+// Qn 65
+function reverseCase()
+{
+	let string1=document.getElementById("string1").value;
+	stringOutput="";
+	lowerCaseList=/[a-z]/;
+	upperCaseList=/[A-Z]/;
+	if(checkIsEmpty(string1))
+        {
+		for(i=0;i<(string1.length);i++)
+		{
+			if(lowerCaseList.test(string1[i]))
+			{
+				stringOutput+=string1[i].toUpperCase();
+			}
+			else if(upperCaseList.test(string1[i]))
+			{
+				stringOutput+=string1[i].toLowerCase();
+			}
+		}
+		printOutput("answerReverseCase",stringOutput);
+		printOutput("error","");
+	}
+	else
+        {
+		printOutput("error","Please enter the string");
+        }	
+}
+// Qn 67
+function countSymbolDigits()
+{
+	let string1=document.getElementById("string1").value;
+	alphabetCheck=/[A-Za-z]/;
+	digitsCheck=/[0-9]/;
+	alphabetCount=0;
+	digitsCount=0;
+	specialCount=0;
+	string1=string1.trim();
+	string1Length=string1.length;
+	if(checkIsEmpty(string1))
+	{
+		for(i=0;i<string1Length;i++)
+		{
+			if(alphabetCheck.test(string1[i]))
+			{
+				alphabetCount+=1;
+			}
+			else if(digitsCheck.test(string1[i]))
+			{
+				digitsCount+=1;
+			}
+			else
+			{
+				specialCount+=1;
+			}
+		}
+		printOutput("answerCountAlphabets",alphabetCount);
+		printOutput("answerCountDigits",digitsCount);
+		printOutput("answerCountSymbols",specialCount);
+		printOutput("error","");
+	}
+	else
+	{
+		printOutput("error","Please enter the string and character to search");
+	}	
+}
+// Qn 68
 function countVovelsAndCons()
 {
-    let string1=document.getElementById("string1").value;
-    vowelsList=['a','e','i','o','u','A','E','I','O','U']
-    vowelCount=0;
-    ConsCount=0;
-    string1=string1.trim();
-    string1Length=string1.length;
-    if(checkIsEmpty(string1))
+	let string1=document.getElementById("string1").value;
+	vowelsList=['a','e','i','o','u','A','E','I','O','U'];
+	vowelCount=0;
+	ConsCount=0;
+	string1=string1.trim();
+	string1Length=string1.length;
+	if(checkIsEmpty(string1))
         {
-            for(i=0;i<string1Length;i++)
-            {
-                if(vowelsList.includes(string1[i]))
-                {
-                    vowelCount+=1;
-                }
-                else
-                {
-                    ConsCount+=1;
-                }
-            }
-            printOutput("answerCountVovelsAndCons","Number of vowels = "+vowelCount+", Number of consonents = "+ ConsCount);
-            printOutput("error","");
-        }
-        else
+		for(i=0;i<string1Length;i++)
+		{
+			if(vowelsList.includes(string1[i]))
+			{
+				vowelCount+=1;
+			}
+			else
+			{
+				ConsCount+=1;
+			}
+		}
+		printOutput("answerCountVovelsAndCons","Number of vowels = "+vowelCount+", Number of consonents = "+ ConsCount);
+		printOutput("error","");
+	}
+	else
         {
-            printOutput("error","Please enter the string and charector to search");
+		printOutput("error","Please enter the string and character to search");
+        }	
+}
+// Qn 69
+function checkBrackets()
+{
+	let string1=document.getElementById("string1").value;
+	string1Length=string1.length;
+	parenthesis=0;
+	squareBrackets=0;
+	curleyBraces=0;
+	if(checkIsEmpty(string1))
+        {
+		for(i=0;i<string1Length;i++)
+		{
+			if( string1[i]=='(' )
+			{
+				parenthesis=1;
+			}
+			else if( string1[i]==')' )
+			{
+				if(parenthesis==0)
+				{
+					printOutput("answerCheckBrackets","");
+					printOutput("error","invalid ) in string");
+					return;
+				}
+				else
+				{
+					parenthesis--;
+				}
+			}
+			else if( string1[i]=='[' )
+			{
+				squareBrackets=1;
+			}
+			else if( string1[i]==']' )
+			{
+				if(squareBrackets==0)
+				{
+					printOutput("answerCheckBrackets","");
+					printOutput("error","invalid ] in string");
+					return;
+				}
+				else
+				{
+					squareBrackets--;
+				}
+			}
+			else if( string1[i]=='{' )
+			{
+				curleyBraces=1;
+			}
+			else if( string1[i]=='}' )
+			{
+				if(curleyBraces==0)
+				{
+					printOutput("answerCheckBrackets","");
+					printOutput("error","invalid } in string");
+					return;
+				}
+				else
+				{
+					curleyBraces--;
+				}
+			}
+		}
+		if(parenthesis!=0 || squareBrackets!=0 || curleyBraces!=0)
+		{
+			printOutput("error","Unclosed Brackets in the string");	
+			printOutput("answerCheckBrackets","");	
+		}
+		else
+		{
+			printOutput("answerCheckBrackets","String is ok");
+			printOutput("error","");
+		}
+
+	}
+	else
+        {
+		printOutput("error","Please enter the string and character to search");
         }	
 }

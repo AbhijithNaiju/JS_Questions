@@ -152,27 +152,25 @@ function  multipleOf5And11()
 {
 	let number=document.getElementById("numberOne").value;
 	if(checkIsEmpty(number))
+	{
+		array1=[];
+		for(i=1;i<=number;i++)
 		{
-			for(i=1;i<=number;i++)
+			if(i%5==0 && i%11==0)
 			{
-				if(i%5==0)
-				{
-					document.write(i +" : divisible by 5 ");
-				}
-				else
-				{
-					document.write(i +" : Not divisible by 5 ");
-				}
-				if(i%11==0)
-					{
-						document.write(", divisible by 11 <br><br>");
-					}
-					else
-					{
-						document.write(", Not divisible by 11 <br><br>");
-					}
+				array1.push(i);
 			}
 		}
+		if(!array1[0])
+		{
+			printOutput("error","No multiple of 5 and 11 found");
+		}
+		else
+		{
+			printOutput("answermultipleOf5And11",array1);
+			printOutput("error","");
+		}	
+	}
 	else
 	{
 		printOutput("error","Please enter the limit");
@@ -319,6 +317,7 @@ function positiveOrNegative()
 	let num1=document.getElementById("numberOne").value;
 	if(checkIsEmpty(num1))
 	{
+		num1=Number(num1);
 		if(num1>0)
 		{
 			printOutput("answerPositiveOrNegative","Positive");
@@ -338,6 +337,56 @@ function positiveOrNegative()
 	printOutput("error","Please enter some values");
 	}
 }
+
+//36
+function countNotes()
+{
+	let num1=document.getElementById("numberOne").value;
+	var countNotes500;
+	var countNotes200;
+	var countNotes100;
+	var countNotes50;
+	var countNotes20;
+	var countNotes10;
+	var countNotes5;
+	if(checkIsEmpty(num1))
+	{
+		num1=Number(num1);
+		countNotes500=parseInt(num1/500);
+		num1=num1-(countNotes500*500);
+
+		countNotes200=parseInt(num1/200);
+		num1=num1-(countNotes200*200);
+
+		countNotes100=parseInt(num1/100);
+		num1=num1-(countNotes100*100);
+
+		countNotes50=parseInt(num1/50);
+		num1=num1-(countNotes50*50);
+
+		countNotes20=parseInt(num1/20);
+		num1=num1-(countNotes20*20);
+
+		countNotes10=parseInt(num1/10);
+		num1=num1-(countNotes10*10);
+
+		countNotes5=parseInt(num1/5);
+		num1=num1-(countNotes5*5);
+
+		printOutput("answerCountNotes500",countNotes500);
+		printOutput("answerCountNotes200",countNotes200);
+		printOutput("answerCountNotes100",countNotes100);
+		printOutput("answerCountNotes50",countNotes50);
+		printOutput("answerCountNotes20",countNotes20);
+		printOutput("answerCountNotes10",countNotes10);
+		printOutput("answerCountNotes5",countNotes5);
+	}
+	else
+	{
+	printOutput("error","Please enter some values");
+	}
+}
+
 // Qn 37
 function evenToN()
 {
@@ -379,6 +428,8 @@ function sumAvgToN()
 	printOutput("error","Please enter some values");
 	}
 }
+
+// Qn39
 function sumEvenToN()
 {
 	numberOne=document.getElementById("numberOne").value;
@@ -400,6 +451,8 @@ function sumEvenToN()
 	printOutput("error","Please enter some values");
 	}
 }
+
+// Qn40
 function sumEvenAndOddToN()
 {
 	numberOne=document.getElementById("numberOne").value;
