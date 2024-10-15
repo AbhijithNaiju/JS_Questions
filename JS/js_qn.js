@@ -17,12 +17,13 @@ function checkIsEmpty(checkValue)
 	}
 }
 
-
+// Qn1
 function helloWorld()
 {
 	document.write("Hello World")
 }
 
+// Qn2
 function addTwoNum()
 {
 	let NumberOne=document.getElementById("NumberOne").value;
@@ -38,6 +39,7 @@ function addTwoNum()
 	}
 }
 
+// Qn4
 function averageOfThree()
 {
 	let NumberOne=document.getElementById("NumberOne").value;
@@ -47,6 +49,7 @@ function averageOfThree()
 	printOutput("answerFourAverage",(Number(NumberOne)+Number(NumberTwo)+Number(NumberThree))/3);
 }
 
+// Qn5
 function simpleInterest()
 {
 	let amount=document.getElementById("amount").value;
@@ -55,6 +58,7 @@ function simpleInterest()
 	printOutput("answerSimpleInterest",(Number(amount)*Number(rate)*Number(years))/100);
 }
 
+// Qn6
 function compountInterest()
 {
 	let amount=parseFloat(document.getElementById("amount").value);
@@ -64,6 +68,7 @@ function compountInterest()
 	printOutput("answerCompountInterest",answer);
 }
 
+// Qn7
 function areaOfCircle()
 {
 	const pi=3.14;
@@ -71,6 +76,7 @@ function areaOfCircle()
 	printOutput("answerCircleArea",pi*Number(radius)**2);
 }
 
+// Qn8
 function calculateFloatNumbers()
 {
 	let numberOne=parseFloat(document.getElementById("numberOne").value);
@@ -80,18 +86,22 @@ function calculateFloatNumbers()
 	printOutput("answerFloatProduct",(numberOne*numberTwo).toFixed(2));
 	if(numberTwo!=0)
 	{
-		printOutput("answerFloatQuotient",(numberOne/numberTwo).toFixed(2));
+		printOutput("answerFloatQuotient",(numberOne/numberTwo));
 	}
 	else
 	{
 		printOutput("answerFloatQuotient","Division by 0 is not possible");	
 	}
 }
+
+// Qn9
 function cubeOfNumber()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
 	printOutput("answerCube",numberOne**3);	
 }
+
+// Qn10
 function evenOrOdd()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
@@ -105,6 +115,7 @@ function evenOrOdd()
 	}
 }
 
+// Qn11
 function leapYearOrNot()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
@@ -122,6 +133,7 @@ function leapYearOrNot()
 	}
 }
 
+// Qn12
 function swapNumbers()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
@@ -132,12 +144,16 @@ function swapNumbers()
 	numberOne=numberOne-numberTwo;
 	printOutput("answerAfterSwap","Number 1: "+ numberOne +", Number 2: "+ numberTwo);
 }
+
+// Qn13
 function numberPower()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
 	let power=parseInt(document.getElementById("power").value);	
 	printOutput("answerPower",numberOne**power);	
 }
+
+// Qn14
 function digitsSum()
 {
 	let numberOne=parseInt(document.getElementById("numberOne").value);
@@ -151,6 +167,8 @@ function digitsSum()
 	}
 	printOutput("answerDigitsSum",sum);	
 }
+
+// Qn15
 function reverseNumber()
 {
 	let numberOne=document.getElementById("numberOne").value;
@@ -172,6 +190,8 @@ function reverseNumber()
 		printOutput("error","Please enter the number");
 	}	
 }
+
+// Qn16
 function smallAndLarge()
 {
 	let num1=document.getElementById("numberOne").value;
@@ -227,6 +247,8 @@ function smallAndLarge()
 		printOutput("error","Please enter 3 numbers");
 	}	
 }
+
+// Qn17
 function primeOrNot()
 {
 	let num1=document.getElementById("numberOne").value;
@@ -263,6 +285,34 @@ function primeOrNot()
 		printOutput("error","Please enter the number");
 	}	
 }
+
+// Qn18
+function findEligibility()
+{
+	let physics=document.getElementById("physics").value;
+	let chemistry=document.getElementById("chemistry").value;
+	let maths=document.getElementById("maths").value;
+	if(checkIsEmpty(physics) && checkIsEmpty(chemistry) && checkIsEmpty(maths))
+	{
+		printOutput("error","");
+		physics=Number(physics);
+		chemistry=Number(chemistry);
+		maths=Number(maths);
+		if(maths>=65 && physics>=55 && chemistry>=50 && ((physics+chemistry+maths)>=190 || (maths+physics)>=140))
+		{
+			printOutput("answerEligibility","Eligible");
+		}
+		else
+		{
+			printOutput("answerEligibility","Not Eligible");
+		}
+	}
+	else
+	{
+		printOutput("error","Please enter all the marks");	
+	}
+}
+// Qn19
 function dayName()
 {
 	let num1=document.getElementById("numberOne").value;
@@ -302,29 +352,4 @@ function dayName()
 	{
 		printOutput("error","Please enter the number");
 	}	
-}
-function findEligibility()
-{
-	let physics=document.getElementById("physics").value;
-	let chemistry=document.getElementById("chemistry").value;
-	let maths=document.getElementById("maths").value;
-	if(checkIsEmpty(physics) && checkIsEmpty(chemistry) && checkIsEmpty(maths))
-	{
-		printOutput("error","");
-		physics=Number(physics);
-		chemistry=Number(chemistry);
-		maths=Number(maths);
-		if(maths>=65 && physics>=55 && chemistry>=50 && ((physics+chemistry+maths)>=190 || (maths+physics)>=140))
-		{
-			printOutput("answerEligibility","Eligible");
-		}
-		else
-		{
-			printOutput("answerEligibility","Not Eligible");
-		}
-	}
-	else
-	{
-		printOutput("error","Please enter all the marks");	
-	}
 }

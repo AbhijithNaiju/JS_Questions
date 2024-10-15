@@ -1,0 +1,37 @@
+<!doctype html>	
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Qn-45</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<link rel="stylesheet" href="style/js_qn.css">
+	</head>
+	<body>
+		<div>
+			<form class="main">
+				<div class="question">
+					<span>45: JS Program to find Surface Area and Volume of a Cuboid</span>
+				</div>
+				<input type="number" id="cuboidwidth" placeholder="Width">
+				<input type="number" id="cuboidLength" placeholder="Length">
+				<input type="number" id="cuboidheight" placeholder="Height">
+				<button type="button" onclick="calculateCuboid()">Calculate</button>
+				<div>
+					<span>Surface Area: </span>
+					<label id="answerCalculateSurfaceCuboid"></label>
+				</div>
+				<div>
+					<span>Volume =  </span>
+					<label id="answerCalculateVolumeCuboid"></label>
+				</div>
+				<div>
+					<span>Lateral Surface Area =  </span>
+					<label id="answerCalculateLateralCuboid"></label>
+				</div>
+				<div id="error"></div>
+			</form>
+		</div>	
+		<script src="js/js_from_41.js"></script>
+	</body>
+</html>

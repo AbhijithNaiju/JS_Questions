@@ -1,0 +1,26 @@
+50: Write a program to perform menu based arithmetic operations.
+
+        1 - Add
+        2 - Substract
+        3 - Multiply
+        4 - Division
+		5 - Exit
+	(NB : The program exit until you enter 5, otherwise return back to menu )
+
+
+55:  Js program to convert Byte to String
+    byte := []byte{72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100}
+
+
+63: Js program to check the specified substring is the prefix of the given string
+
+
+66: Js program to reverse all the vowels present in a given string. Return the new string
+
+
+74: Js program to find out the number of occurrence of all alphabets in that string. Find out the alphabet with maximum occurrence.
+
+
+75: Input a string which contains some palindrome substrings. Js program to find out the position of palindrome substrings if exist and replace it by . (For example if input string is “bob has a radar plane” then it should convert in “** has a ***** plane”.
+
+
