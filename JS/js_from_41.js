@@ -181,9 +181,9 @@ function calculateSphere()
     if(checkIsEmpty(radius))
         {
             radius=Number(radius);
-            surfaceArea=4*pi*(radius**2);
-            volume=4*pi*(radius**3);
-            printOutput("answerCalculateSurfaceSphere",surfaceArea);
+            sphereSurfaceArea=4*pi*(radius**2);
+            volume=(4/3)*pi*(radius**3);
+            printOutput("answerCalculateSurfaceSphere",sphereSurfaceArea);
             printOutput("answerCalculateVolumeSphere",volume);
             printOutput("error","");
         }
@@ -298,6 +298,16 @@ function stringConcatMethod()
     let string2=document.getElementById("string2").value;
     addedString=string1.concat(string2);
     printOutput("answerStringConcatMethod",addedString);
+}
+// Qn 55
+function byteToString()
+{
+    var array1=[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
+    for(i=0;i<array1.length;i++)
+	{
+		document.write(String.fromCharCode(array1[i]));
+	}
+    printOutput("answerByteToString",addedString);
 }
 // Qn 56
 function stringFirstChar()
@@ -441,6 +451,33 @@ function printStringCharOccurance()
 		printOutput("error","Please enter the string and charector to search");
 	}	
 }
+// Qn 63
+function checkStringPrefix()
+{
+	let string1=document.getElementById("string1").value;
+	let subString=document.getElementById("subString").value;
+	requiredPrefix="";
+	if(checkIsEmpty(string1) && checkIsEmpty(subString))
+	{
+		substringLength=subString.length;
+		for(i=0;i<substringLength;i++)
+		{
+			requiredPrefix+=string1[i];
+		}
+		if(subString==requiredPrefix)
+		{
+			printOutput("answerStringPrefix","Specified substring is the prefix of the given string");
+		}
+		else
+		{
+			printOutput("answerStringPrefix","Specified substring is not the prefix of the given string");
+		}
+	}
+	else
+	{
+		printOutput("error","Please enter the string and substring to search");
+	}	
+}
 // Qn 64
 function replaceString()
 {	
@@ -484,6 +521,42 @@ function reverseCase()
 	else
         {
 		printOutput("error","Please enter the string");
+        }	
+}
+// Qn 66
+function reverseVowels()
+{
+	let string1=document.getElementById("string1").value;
+	vowelsCheckList=['a','e','i','o','u','A','E','I','O','U'];
+	string1Vowels=[];
+	string2="";
+	string1Length=string1.length;
+	if(checkIsEmpty(string1))
+        {
+		for(i=0;i<string1Length;i++)
+		{
+			if(vowelsCheckList.includes(string1[i]))
+			{
+				string1Vowels.unshift(string1[i]);
+			}
+		}
+		for(i=0;i<string1Length;i++)
+		{
+			if(vowelsCheckList.includes(string1[i]))
+			{
+				string2+=string1Vowels.shift(string1[i]);
+			}
+			else
+			{
+				string2+=string1[i];
+			}
+		}
+		printOutput("answerReverseVowels",string2);
+		printOutput("error","");
+	}
+	else
+        {
+		printOutput("error","Please enter the string and character to search");
         }	
 }
 // Qn 67
@@ -568,7 +641,7 @@ function checkBrackets()
 		{
 			if( string1[i]=='(' )
 			{
-				parenthesis=1;
+				parenthesis+=1;
 			}
 			else if( string1[i]==')' )
 			{
@@ -585,7 +658,7 @@ function checkBrackets()
 			}
 			else if( string1[i]=='[' )
 			{
-				squareBrackets=1;
+				squareBrackets+=1;
 			}
 			else if( string1[i]==']' )
 			{
@@ -602,7 +675,7 @@ function checkBrackets()
 			}
 			else if( string1[i]=='{' )
 			{
-				curleyBraces=1;
+				curleyBraces+=1;
 			}
 			else if( string1[i]=='}' )
 			{
